@@ -47,6 +47,7 @@ jobs:
           cd /home/ubuntu/projetos/next-chakra
           rsync -avz --delete ./ /home/ubuntu/projetos/next-chakra
           cd /home/ubuntu/projetos/next-chakra
+          sudo git pull origin main
           sudo docker-compose down
           sudo docker-compose build
           sudo docker-compose up -d
