@@ -26,7 +26,7 @@ export default function Home() {
           position={{lat: stateSelected.latitude, lng: stateSelected.longitude}}
           clickable={true}
           onClick={() => alert('marker was clicked!')}
-          title={'clickable google.maps.Marker'}
+          title={stateSelected.name}
         />
     </>
   )
