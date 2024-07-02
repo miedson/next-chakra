@@ -1,3 +1,4 @@
+'use client'
 import { ListStatesContext } from "@/app/contexts/list-states.context";
 import { State, states } from "@/app/states";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
