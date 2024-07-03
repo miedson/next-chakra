@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  ENV_PROD: ${{ vars.ENV_PROD }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -45,8 +48,10 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
           cd /home/ubuntu/projetos/next-chakra
-          rsync -avz --delete ./ /home/ubuntu/projetos/next-chakra
-          cd /home/ubuntu/projetos/next-chakra
+          if [! -f /.env]; then
+            echo "${{ env.ENV_PROD }}" > /.env
+            echo ".env created"
+          fi
           sudo git pull origin main
           sudo docker-compose down
           sudo docker-compose build
