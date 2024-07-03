@@ -48,8 +48,9 @@ jobs:
         envs: ENV_PROD
         script: |
           cd /home/ubuntu/projetos/next-chakra
-          if [ -f .env ]; then
+          if [ ! -f .env ]; then
           echo "${{ env.ENV_PROD }}" > .env
+          fi
           sudo git pull origin main
           sudo docker-compose down
           sudo docker-compose build
